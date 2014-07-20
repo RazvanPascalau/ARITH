@@ -76,10 +76,8 @@ void printSum(std::deque<int8_t>&firstNumber, std::deque<int8_t>&secondNumber){
     
     int32_t nrOfDashes = static_cast<int32_t>( max(result.size(), secondNumber.size() + 1));
     
-    int32_t nrOfSpacesForFirst = static_cast<int32_t>(max(static_cast<int32_t>(result.size() - firstNumber.size()),
-                                                          static_cast<int32_t>( secondNumber.size()+ 1 - firstNumber.size())));
-    int32_t nrOfSpacesForSecond = max(static_cast<int32_t>(result.size() - secondNumber.size()-1), 0);
-    
+    int32_t nrOfSpacesForFirst =  nrOfDashes - static_cast<int32_t>(firstNumber.size() );
+    int32_t nrOfSpacesForSecond = nrOfDashes - static_cast<int32_t>(secondNumber.size() + 1);
     int32_t nrOfSpacesForResult = nrOfDashes - static_cast<int32_t>(result.size() );
     
     std::cout << string(nrOfSpacesForFirst, ' ') << firstNumber << endl;

@@ -124,15 +124,15 @@ inline bool printDifference(std::deque<int8_t>&firstNumber, std::deque<int8_t>&s
     }
    
     
-    
-    int32_t nrOfSpacesForFirst = firstNumber.size() == secondNumber.size() ? 1 : 0;
-    int32_t nrOfSpacesForSecond = max(static_cast<int32_t>(firstNumber.size() - secondNumber.size()-1), 0);
-    int32_t nrOfDashes = static_cast<int32_t>(firstNumber.size());
+    int32_t nrOfDashes = static_cast<int32_t>( max(firstNumber.size(), secondNumber.size() + 1));
+    int32_t nrOfSpacesForFirst =  nrOfDashes - static_cast<int32_t>(firstNumber.size() );
+    int32_t nrOfSpacesForSecond = nrOfDashes - static_cast<int32_t>(secondNumber.size() + 1);
+    int32_t nrOfSpacesForResult = nrOfDashes - static_cast<int32_t>(result.size() );
     
     std::cout << string(nrOfSpacesForFirst, ' ') << firstNumber << endl;
     std::cout << string(nrOfSpacesForSecond, ' ')<< "-" << secondNumber << endl;
     std::cout << string(nrOfDashes, '-') << endl;
-    std::cout << result << endl << endl;
+    std::cout << string(nrOfSpacesForResult, ' ') <<result << endl << endl;
     
     return true;
 }
